@@ -36,7 +36,7 @@ export default function Redirect({ vertical, campaign, syndicator, target }) {
         {/* Google Analytics */}
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-0SLX5YWDZD"
+          src="https://www.googletagmanager.com/gtag/js?id=G-KMQF3VH25V"
         ></script>
         <script
           dangerouslySetInnerHTML={{
@@ -44,7 +44,7 @@ export default function Redirect({ vertical, campaign, syndicator, target }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-0SLX5YWDZD', {
+              gtag('config', 'G-KMQF3VH25V', {
                 page_path: '/${vertical}/${campaign}/${syndicator}',
               });
             `,
