@@ -3,7 +3,8 @@ export async function getServerSideProps(context) {
 
   // Use hardcoded SendStak link if no `target` param is present
   const decodedTarget = decodeURIComponent(
-    target || "https://sendstak.com/redirect/vppthsjYl-?user={{ contact.EMAIL }}"
+    target || "https://sendstak.com/redirect/f3orYU_ef3?user={{ email }}"
+    target || "https://sendstak.com/redirect/G1RBabYWio?user={{ email }}"
   );
 
   return {
