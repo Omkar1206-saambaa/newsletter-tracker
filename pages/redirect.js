@@ -1,11 +1,21 @@
 export async function getServerSideProps(context) {
-  const { vertical = "", campaign = "", syndicator = "", target } = context.query;
+  const {
+    vertical = "",
+    campaign = "",
+    syndicator = "",
+    target,
+    link = "1", // Default to link 1
+  } = context.query;
 
-  // Use hardcoded SendStak link if no `target` param is present
-  const decodedTarget = decodeURIComponent(
-    target || "https://sendstak.com/redirect/f3orYU_ef3?user={{ email }}"
-    target || "https://sendstak.com/redirect/G1RBabYWio?user={{ email }}"
-  );
+  // Define multiple hardcoded SendStak links
+  const links = {
+    "1": "https://sendstak.com/redirect/f3orYU_ef3?user={{ email }}",
+    "2": "https://sendstak.com/redirect/G1RBabYWio?user={{ email }}",
+  };
+
+  const fallbackTarget = links[link] || links["1"];
+
+  const decodedTarget = decodeURIComponent(target || fallbackTarget);
 
   return {
     props: {
@@ -41,7 +51,6 @@ export default function Redirect({ vertical, campaign, syndicator, target }) {
           }}
         />
 
-        {/* Meta Redirect */}
         <meta httpEquiv="refresh" content={`0; URL='${target}'`} />
       </head>
       <body>
